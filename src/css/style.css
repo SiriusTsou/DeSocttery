@@ -108,7 +108,7 @@ ul {
     src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmRdr.ttf) format('truetype')
 }
 
-@font-face {
+/*@font-face {
     font-family: Brandon;
     font-style: normal;
     font-weight: 700;
@@ -138,7 +138,7 @@ ul {
     font-weight: 600;
     src: url(https://static-assets.strikinglycdn.com/fonts/brandon_med-webfont.78c65e04664b2559e1ca630e2606c3b5.eot);
     src: url(https://static-assets.strikinglycdn.com/fonts/brandon_med-webfont.78c65e04664b2559e1ca630e2606c3b5.eot?#iefix) format("embedded-opentype"), url(https://static-assets.strikinglycdn.com/fonts/brandon_med-webfont.43b22b68b4b50438a8c9d5ed49507204.woff) format("woff"), url(https://static-assets.strikinglycdn.com/fonts/brandon_med-webfont.b2cf0cf708268a04055c5d8545d811a4.ttf) format("truetype"), url(https://static-assets.strikinglycdn.com/fonts/brandon_med-webfont.785c578a01a0d60f61ad665fe481306d.svg#BrandonGrotesqueMedium) format("svg")
-}
+}*/
 
 @font-face {
     font-family: open_sans;

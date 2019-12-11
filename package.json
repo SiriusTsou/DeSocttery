@@ -7,13 +7,10 @@
     "clean:cache": "rm -rf .cache",
     "clean:build": "rm -rf build",
     "dev": "npm run clean && node bin/dev",
-    "build": "npm run clean:build && parcel build src/*.html --out-dir build/",
+    "build": "npm run clean:build && parcel build --no-minify src/index.html --out-dir build/",
     "build-with-obfuscator": "npm run build && npm run obfuscator",
     "obfuscator": "bin/obfuscator.sh",
-    "deploy": "bin/deploy.sh",
-    "deploy-beta": "bin/deploy-beta.sh",
-    "deploy-alpha": "bin/deploy-alpha.sh",
-    "deploy-netlify": "bin/deploy-netlify.sh"
+    "deploy": "bin/deploy.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
