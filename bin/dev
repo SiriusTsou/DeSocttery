@@ -1,0 +1,39 @@
+'use strict';
+
+const path = require('path');
+const Bundler = require('parcel-bundler');
+const { execSync } = require('child_process');
+
+const buildStatic = () => {
+  console.log("build Static...")
+  const postBuildFile = './bin/dev-build-static.sh'
+  console.log(`running: ${postBuildFile}`)
+  const stdout = execSync(`${postBuildFile}`)
+  console.log("build done.")
+}
+
+(async () => {
+  // parcel
+  const entryFiles = [
+    path.join('src/index.html')
+  ]
+
+  const options = {
+    watch: true,
+    contentHash: false,
+    // minify: true,
+    outDir: './dist',
+    publicUrl: '/'
+  }
+
+  const bundler = new Bundler(entryFiles, options)
+  bundler.serve()
+  bundler.on('bundled', (bundle) => {
+    buildStatic()
+  });
+  //await bundler.bundle()
+})()
+
+process.once('SIGINT',() => {
+    process.exit(0);
+});

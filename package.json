@@ -1,0 +1,36 @@
+{
+  "name": "Desocttery",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "clean:cache": "rm -rf .cache",
+    "clean:build": "rm -rf build",
+    "dev": "npm run clean && node bin/dev",
+    "build": "npm run clean:build && parcel build src/*.html --out-dir build/",
+    "build-with-obfuscator": "npm run build && npm run obfuscator",
+    "obfuscator": "bin/obfuscator.sh",
+    "deploy": "bin/deploy.sh",
+    "deploy-beta": "bin/deploy-beta.sh",
+    "deploy-alpha": "bin/deploy-alpha.sh",
+    "deploy-netlify": "bin/deploy-netlify.sh"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "cloudflare-purge-cache": "^1.1.0",
+    "gh-pages": "^2.1.1",
+    "javascript-obfuscator": "^0.18.1",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.23.0-module.beta.1"
+  },
+  "browserslist": [
+    ">0.25%",
+    "ie 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "node": "^10.16.0",
+    "npm": "^6.10.3"
+  }
+}
