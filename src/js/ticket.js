@@ -1,7 +1,7 @@
 import { TOKEN } from './constant'
 
 class Ticket  {
-  constructor(rWeb3,abi, gas, address) {
+  constructor(rWeb3, abi, gas, address) {
     this._address = address
 
     this.rWeb3 = rWeb3
