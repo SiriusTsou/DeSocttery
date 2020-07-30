@@ -1282,3 +1282,266 @@ body:not(.edit) {
 #s-content.s-font-title-source-sans-pro .s-font-title {
     font-family: "source sans pro", helvetica, sans-serif
 }
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+.dialog-dropback {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog-box {
+  max-width: 400px;
+  width: 80%;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+}
+.dialog-header {
+  height: 56px;
+  padding: 32px 16px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-header-actions {
+  display: flex;
+  align-items: center;
+}
+.dialog-content {
+  max-height: 475px;
+  padding: 32px 16px;
+  overflow-y: auto;
+}
+.dialog-footer {
+  margin-bottom: 32px;
+  padding: 0 16px;
+  display: flex;
+}
+.dialog-footer > *:not(:first-child) {
+  margin-left: 12px;
+}
+.dialog-divider {
+  margin: 12px 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(80, 98, 110, 0.3);
+}
+.dialog-row {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-row > *:not(:first-child) {
+  margin-left: 16px;
+}
+.dialog-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.dialog-text, .dialog-value, .dialog-input-unit {
+  font-size: 16px;
+}
+.dialog-text {
+  min-width: 80px;
+}
+.dialog-paragraph {
+  font-size: 14px;
+}
+.dialog-value {
+  flex: 1 1;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-value > span:first-child {
+  flex: 1 1;
+  overflow: hidden;
+  word-break: break-all;
+}
+.dialog-value-unit {
+  padding: 4px 8px;
+}
+.dialog-link {
+  font-size: 16px;
+  color: #61a1f2;
+}
+.dialog-account {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  word-break: break-all;
+}
+.dialog-input-wrapper {
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  background-color: rgba(80, 98, 110, 0.1);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+.dialog-input-field {
+  width: 100%;
+  flex: 1;
+  border: none;
+  background-color: transparent;
+}
+.dialog-input-field:focus {
+  outline: none;
+}
+.dialog-input-right-button {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 8px;
+  background-color: transparent;
+  color: rgba(80, 98, 110, 0.5);
+  cursor: pointer;
+}
+.dialog-select {
+  width: 80px;
+  height: 32px;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(80, 98, 110, 0.1);
+  color: #50626e;
+}
+.dialog-close-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.dialog-logout-button {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 8px;
+  background-color: rgba(80, 98, 110, 0.1);
+  color: #50626E;
+  cursor: pointer;
+}
+.dialog-button {
+  flex: 1 1;
+  height: 56px;
+  border-radius: 4px;
+  color: white;
+  background-color: #50626E;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.dialog-button--outline {
+  border: 2px solid #50626E;
+  color: #50626E;
+  background-color: white;
+}
+.dialog-qrcode-wrapper {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+.dialog-qrcode-wrapper > #qrcode {
+  width: 100px;
+  height: 100px;
+}
+.dialog-qrcode-wrapper > #wallet-connect-qrcode {
+  width: 200px;
+  height: 200px;
+}
+.dialog #createKeyStore, .dialog #importKeyStore {
+  display: none;
+}
+.dialog .custom-control {
+  display: flex;
+}
+.dialog .custom-control-label:after, .dialog .custom-control-label:before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+}
+.dialog .custom-control-label:before {
+  pointer-events: none;
+  background-color: #fff;
+  border: 1px solid #adb5bd;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.dialog #loginForm .wrapper label {
+  display: block;
+  margin-left: 6px;
+  margin-top: -4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+.dialog .input-item {
+  padding: 8px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog .input-item > input {
+  flex: 1;
+}
+.dialog .input-item > input::placeholder {
+  padding-left: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.dialog .form-control {
+  border: 1px ridge #6F8394;
+}
+.dialog .fake-input {
+  height: 36px;
+  padding: 6px 12px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid #50626E;
+  border-radius: 4px;
+  margin: 10px 0 !important;
+  width: 100% !important;
+}
+.dialog .dialog-inner-button {
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid #50626E;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  outline: none;
+}
+.dialog .desc, .dialog .user-checkbox-area {
+  font-size: 14px;
+  margin-left: 8px;
+}
+.dialog .desc input, .dialog .user-checkbox-area input {
+  margin-right: 10px;
+}

@@ -3,7 +3,10 @@ const { NetworkOnlyConnector, InjectedConnector } = Web3Vanilla.Connectors
 
 import { RPC_NETWORK, ABI, CONTRACT } from './constant'
 import Ticket from './ticket'
+import Game from './game'
 import { parseUser, getGasPrice, format, formatFloatLength } from './utils'
+
+import WagerDialog from './component/WagerDialog/.'
 
 BigNumber.config({ RANGE: [-19, 61], EXPONENTIAL_AT: [-19, 61] })
 
@@ -15,7 +18,6 @@ class App  {
     this.wWeb3 = null 
     this.rWeb3Provider = null
     this.wWeb3Provider = null
-
   }
 
   async start() {
@@ -57,6 +59,7 @@ class App  {
 
   async initWWeb3() {
     if (window.ethereum) {
+      console.log('123')
       const supportedNetworks = Object.keys(RPC_NETWORK).map(
         (supportedNetworkURL) => Number(supportedNetworkURL)
       )
@@ -105,19 +108,47 @@ class App  {
         })
       }   
     }
+    console.log('123')
   }
 
   async initTicket(){
     this.ticketHome = new Ticket(this.rWeb3, ABI.TICKET.HOME.abi, ABI.TICKET.HOME.gas, CONTRACT[this.networkId].TICKET.HOME)
     this.ticketAway = new Ticket(this.rWeb3, ABI.TICKET.AWAY.abi, ABI.TICKET.AWAY.gas, CONTRACT[this.networkId].TICKET.AWAY)
     this.ticketTie = new Ticket(this.rWeb3, ABI.TICKET.TIE.abi, ABI.TICKET.TIE.gas, CONTRACT[this.networkId].TICKET.TIE)
-  }
 
+    this.game = new Game(this.rWeb3, ABI.GAME.abi, ABI.GAME.gas, CONTRACT[this.networkId].GAME)
+  }
 
   async render() {
     await this.renderInfo()
     $('.s-common-button.s-font-body.s-action-button').click(async () => {
+      console.log('123')
       await this.initWWeb3()
+    })
+
+    // this.wagerDialog = new WagerDialog($('#wager-dialog'), $('#wager-dialog-src').attr('href'))
+    // await this.wagerDialog.init()
+    
+    $('.s-text-button > div > div > div > a').removeAttr('href')
+    $('.s-text-button > div > div > div > a').eq(0).click(() => {
+      const account = this.wWeb3Provider ? this.wWeb3Provider.account : null
+      if (account) {
+        this.wagerDialog.show(this.wWeb3Provider, this.game.betOnHomeTeam)
+      }
+    })
+
+    $('.s-text-button > div > div > div > a').eq(1).click(() => {
+      const account = this.wWeb3Provider ? this.wWeb3Provider.account : null
+      if (account) {
+        this.wagerDialog.show(this.wWeb3Provider, this.game.betOnAwayTeam)
+      }
+    })
+
+    $('.s-text-button > div > div > div > a').eq(2).click(() => {
+      const account = this.wWeb3Provider ? this.wWeb3Provider.account : null
+      if (account) {
+        this.wagerDialog.show(this.wWeb3Provider, this.game.betOnTie)
+      }
     })
   }
 
@@ -146,7 +177,6 @@ class App  {
       $('.s-common-button.s-font-body.s-action-button').text('CONNECT')
       $('.s-common-button.s-font-body.s-action-button').prop('disabled', false)
     }
-    
   }
 }
 
